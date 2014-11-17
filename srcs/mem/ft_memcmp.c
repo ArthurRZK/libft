@@ -6,7 +6,7 @@
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/17 12:50:21 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 13:16:26 by arzepka          ###   ########.fr       */
+/*   Updated: 2014/11/17 16:28:47 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	if (dst == NULL || src == NULL)
 		return (0);
 	while (dst[i] == src[i])
-	{	
+	{
 		if (i == (n - 1))
 			return (0);
 		i++;

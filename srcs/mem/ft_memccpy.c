@@ -6,7 +6,7 @@
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/17 15:47:25 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 15:52:05 by arzepka          ###   ########.fr       */
+/*   Updated: 2014/11/17 16:28:27 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ void		*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		*s2++;
 	}
 	return (0);
-
 }
