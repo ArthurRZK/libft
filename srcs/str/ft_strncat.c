@@ -6,24 +6,25 @@
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 18:28:10 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 10:43:59 by arzepka          ###   ########.fr       */
+/*   Updated: 2014/11/17 11:09:37 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "../libft.h"
 
-char		*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	char	*s1_begin;
+	size_t	s1_len;
+	size_t	i;
 
-	s1_begin = s1;
-	while (*s1)
-		s1++;
-	while (n--)
+	s1_len = ft_strlen(s1);
+	i = 0;
+	while (i < n && s2[i] != '\0')
 	{
-			if (!(*s1 = *s2++))
-				return (s1_begin);
+		s1[s1_len + i] = s2[i];
+		++i;
 	}
-	*s1 = '\0';
-	return (s1_begin);
+	s1[s1_len + i] = '\0';
+	return (s1);
 }

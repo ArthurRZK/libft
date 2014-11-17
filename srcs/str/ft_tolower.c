@@ -6,13 +6,13 @@
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 21:15:14 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/05 21:16:20 by arzepka          ###   ########.fr       */
+/*   Updated: 2014/11/17 12:16:08 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		tolower(int c)
+int		ft_tolower(int c)
 {
-	if (c <= 'A' && c >= 'Z')
+	if (c >= 'A' && c <= 'Z')
 	{
 		c = c + 32;
 		return (c);

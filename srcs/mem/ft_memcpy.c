@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/07 18:42:59 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 11:18:27 by arzepka          ###   ########.fr       */
+/*   Created: 2014/11/17 12:17:00 by arzepka           #+#    #+#             */
+/*   Updated: 2014/11/17 15:14:06 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+void				*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	size_t	dst_len;
-	size_t	src_len;
+	unsigned char	*s1;
+	unsigned char	*s2;
+	size_t			i;
 
-	dst_len = strlen(dst);
-	src_len = strlen(src);
-	if (dst_len > size)
-		return (size + src_len);
-	while (i + dst_len + 1 < size && src[i] != '\0')
-	{
-		dst[dst_len + i] = src[i];
-		++i;
-	}
-	dst[dst_len + i] = '\0';
-	return (dst_len + src_len);
+	i = 0;
+	s1 = (unsigned char *)dst;
+	s2 = (unsigned char *)src;
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	while (i < n)
+		s1[i] = s2[i];
+	return (s1);
 }

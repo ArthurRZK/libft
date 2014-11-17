@@ -6,7 +6,7 @@
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 15:39:07 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 06:19:50 by arzepka          ###   ########.fr       */
+/*   Updated: 2014/11/17 12:01:13 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	while (*src)
-		*dst++ = *src++;
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
 	return (dst);
 }

@@ -6,20 +6,28 @@
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 15:46:24 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 06:22:27 by arzepka          ###   ########.fr       */
+/*   Updated: 2014/11/17 12:09:33 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char	*ft_strncpy(char *dst, const char *src, size_t n)
+char		*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	while (n--)
+	size_t	i;
+
+	i = 0;
+	if (!n)
+		return (dst);
+	while (src[i] != '\0' && i < n)
 	{
-		if (*src)
-			*dst++ = *src++;
-		else
-			*dst++ = '\0';
+		dst[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dst[i] = '\0';
+		i++;
 	}
 	return (dst);
 }

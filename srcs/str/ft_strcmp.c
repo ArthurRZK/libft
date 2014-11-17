@@ -6,7 +6,7 @@
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 18:46:35 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 06:19:14 by arzepka          ###   ########.fr       */
+/*   Updated: 2014/11/17 11:21:43 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	int	a;
-	int	b;
+	int	i;
 
-	a = 0;
-	b = 0;
-	while (*s1++)
-		a++;
-	while (*s2++)
-		b++;
-	return ((a - b));
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

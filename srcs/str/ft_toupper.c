@@ -6,13 +6,13 @@
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 21:07:16 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/05 21:12:18 by arzepka          ###   ########.fr       */
+/*   Updated: 2014/11/17 12:16:23 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		toupper(int c)
+int		ft_toupper(int c)
 {
-	if (c <= 'a' && c >= 'z')
+	if (c >= 'a' && c <= 'z')
 	{
 		c = c - 32;
 		return (c);
