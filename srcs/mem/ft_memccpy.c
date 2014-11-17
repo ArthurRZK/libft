@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/17 14:07:41 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 14:20:11 by arzepka          ###   ########.fr       */
+/*   Created: 2014/11/17 15:47:25 by arzepka           #+#    #+#             */
+/*   Updated: 2014/11/17 15:52:05 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../libft.h"
+
 #include <string.h>
 
-char	*ft_strstr(const char *s1, const char *s2)
+void		*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	if (ft_strlen(s2) == 0)
-		return ((char *)s1);
-	while (*s1)
+	char		*s1;
+	const char	*s2;
+
+	s1 = dst;
+	s2 = src;
+	while (n--)
 	{
-		if (*s1 == *s2)
-		{
-			if (ft_strncmp(s1, s2, strlen(s2)) == 0)
-				return ((char *)s1);
-		}
-		*s1++;
+		*s1++ = *s2;
+		if (*s2 == (unsigned char)c)
+			return (s1);
+		*s2++;
 	}
-	return (NULL);
+	return (0);
+
 }

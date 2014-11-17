@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/17 14:07:41 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 14:20:11 by arzepka          ###   ########.fr       */
+/*   Created: 2014/11/17 15:04:12 by arzepka           #+#    #+#             */
+/*   Updated: 2014/11/17 15:39:28 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../libft.h"
-#include <string.h>
 
-char	*ft_strstr(const char *s1, const char *s2)
+#include "../libft.h"
+#include <stdlib.h>
+
+int			ft_atoi(const char *str)
 {
-	if (ft_strlen(s2) == 0)
-		return ((char *)s1);
-	while (*s1)
-	{
-		if (*s1 == *s2)
+	int		nbr;
+	char	sign;
+
+	nbr = 0;
+	sign = 1;
+	while (*str && ft_isspace((unsigned char)*str))
+			*str++;
+	if (*str && *str == '-' || *str == '+')
 		{
-			if (ft_strncmp(s1, s2, strlen(s2)) == 0)
-				return ((char *)s1);
+			if (*str == '-')
+				sign = -1;
+			str++;
 		}
-		*s1++;
+	while (*str && ft_isdigit((unsigned char)*str))
+	{
+		nbr = nbr * 10;
+		nbr = nbr + (*str - '0');
+		str++;
 	}
-	return (NULL);
+	return (nbr * sign);
 }
