@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/17 12:50:21 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 16:25:18 by arzepka          ###   ########.fr       */
+/*   Created: 2014/11/25 01:09:14 by arzepka           #+#    #+#             */
+/*   Updated: 2014/11/27 07:21:48 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned char	*dst;
-	unsigned char	*src;
-	size_t			i;
+	int	i;
 
-	dst = (unsigned char *)s1;
-	src = (unsigned char *)s2;
 	i = 0;
-	if (!n)
-		return (0);
-	if (dst == NULL || src == NULL)
-		return (0);
-	while (dst[i] == src[i])
+	if (s != NULL && f != NULL)
 	{
-		if (i == (n - 1))
-			return (0);
-		i++;
+		while (s[i] != '\0')
+		{
+			f(i, &(s[i]));
+			i++;
+		}
 	}
-	return (dst[i] - src[i]);
 }

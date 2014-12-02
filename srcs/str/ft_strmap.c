@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/17 12:50:21 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 16:25:18 by arzepka          ###   ########.fr       */
+/*   Created: 2014/11/27 07:22:01 by arzepka           #+#    #+#             */
+/*   Updated: 2014/11/27 07:37:32 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+char		*ft_strmap(char const *s, char (*f)(char))
 {
-	unsigned char	*dst;
-	unsigned char	*src;
-	size_t			i;
+	int		i;
+	char	*str;
 
-	dst = (unsigned char *)s1;
-	src = (unsigned char *)s2;
-	i = 0;
-	if (!n)
-		return (0);
-	if (dst == NULL || src == NULL)
-		return (0);
-	while (dst[i] == src[i])
+	str = NULL;
+	if (s && f)
 	{
-		if (i == (n - 1))
-			return (0);
-		i++;
+		i = 0;
+		str = ft_strnew(ft_strlen(s));
+		while (s[i])
+		{
+			if (f != NULL)
+				str[i] = f((char)(s[i]));
+			else
+				str[i] = s[i];
+			i++;
+		}
+		return (str);
 	}
-	return (dst[i] - src[i]);
 }

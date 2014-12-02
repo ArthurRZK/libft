@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/17 12:50:21 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 16:25:18 by arzepka          ###   ########.fr       */
+/*   Created: 2014/11/27 07:51:29 by arzepka           #+#    #+#             */
+/*   Updated: 2014/11/27 08:33:32 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+char		*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*dst;
-	unsigned char	*src;
-	size_t			i;
+	char        *ptr;
+	size_t      i;
 
-	dst = (unsigned char *)s1;
-	src = (unsigned char *)s2;
 	i = 0;
-	if (!n)
-		return (0);
-	if (dst == NULL || src == NULL)
-		return (0);
-	while (dst[i] == src[i])
+	ptr = (char *)malloc(len + 1);
+	if (!ptr || !s)
+		return (NULL);
+	while (i < len && s[start])
 	{
-		if (i == (n - 1))
-			return (0);
+		ptr[i] = s[start];
 		i++;
+		start++;
 	}
-	return (dst[i] - src[i]);
+	ptr[i] = '\0';
+	return (ptr);
 }

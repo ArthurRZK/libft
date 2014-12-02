@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arzepka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/17 12:50:21 by arzepka           #+#    #+#             */
-/*   Updated: 2014/11/17 16:25:18 by arzepka          ###   ########.fr       */
+/*   Created: 2014/11/27 10:14:47 by arzepka           #+#    #+#             */
+/*   Updated: 2014/11/27 10:26:21 by arzepka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+char		*ft_strtrim(char const *s)
 {
-	unsigned char	*dst;
-	unsigned char	*src;
-	size_t			i;
+	size_t	len;
+	char	*str;
 
-	dst = (unsigned char *)s1;
-	src = (unsigned char *)s2;
-	i = 0;
-	if (!n)
-		return (0);
-	if (dst == NULL || src == NULL)
-		return (0);
-	while (dst[i] == src[i])
-	{
-		if (i == (n - 1))
-			return (0);
-		i++;
-	}
-	return (dst[i] - src[i]);
+	if (!*s)
+		return (NULL);
+	while (*s && ft_isspace((unsigned char)*s))
+		s++;
+	len = ft_strlen(s);
+	while (*s && ft_isspace((unsigned char)s[--len]))
+		;
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	str = ft_strncpy(str, s, len + 1);
+	str[len + 1] = '\0';
+	return (str);
 }
